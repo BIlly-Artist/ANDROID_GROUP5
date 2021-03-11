@@ -35,22 +35,21 @@ public class MainActivity extends AppCompatActivity {
                 String lname = Lname.getText().toString();
                 String Myyear = Age.getText().toString().trim();
 
-               int year =  Calendar.getInstance().get(Calendar.YEAR);
+                int year = Calendar.getInstance().get(Calendar.YEAR);
+                int y = year - Integer.parseInt(Age.getText().toString());
 
-               if(Myyear.compareTo(String.valueOf(year)) > 18) {
-                   int y = year - Integer.parseInt(Age.getText().toString());
-                   info.setText(name +" " +lname +" " +y +  "  Can Vote");
+
+                if (Myyear.compareTo(String.valueOf(year)) > 0) {
+                    Toast.makeText(MainActivity.this, name + " " + lname ,Toast.LENGTH_SHORT).show();
+                }else if(y >18 ) {
+                        info.setText(name + " " + lname + " " + y + "  Can Vote");
+                        int yy = year - Integer.parseInt(Age.getText().toString());
+
+                }else
+                    info.setText(name + " " + lname + " " + y + "  Cannot Vote");
+
 
                 }
-                else {
-                   int y = year - Integer.parseInt(Age.getText().toString());
-
-                    info.setText(name +" " +lname +" " +y +  "  Cannot Vote");
-                    Toast.makeText(MainActivity.this,name + " " + lname + " Can Vote", Toast.LENGTH_SHORT).show();
-//
-
-                }
-            }
 
         });
      }
